@@ -1,0 +1,79 @@
+<scroll-view scroll-y class="scrollPage">
+
+  <view class="UCenter-bg">
+    <view wx:if="{{user_info.isLogin}}" class="user_">
+      <!-- <image class="user_bg" src="{{user_message.user_img}}"></image> -->
+      <view class="user_message">
+        <view class="user_msg">
+          <image class="user_icon xuanzhuan" src="{{user_info.avatar_url}}"></image>
+          <view class="user_text">
+            <view class="user_name doudong"><text>{{user_info.nick_name}}</text></view>
+            <!-- <view class="qianming"><text>{{user_message.user_geqian}}</text></view> -->
+          </view>
+        </view>
+      </view>
+    </view>
+    <view wx:else class="no_login" bindtap="getUserProfile">
+      <button type="">登录</button>
+    </view>
+    <image src="cloud://dev-2gzxo1d2dc39c5e3.6465-dev-2gzxo1d2dc39c5e3-1305581356/animation/wave.gif" mode="scaleToFill" class="gif-wave"></image>
+  </view>
+  <!-- <image src=""></image> -->
+
+  <view class="padding flex text-center text-grey bg-white shadow-warp">
+    <view class="flex flex-sub flex-direction solid-right">
+      <view class="text-xxl text-orange">123{{visitTotal}}</view>
+      <view class="margin-top-sm">
+        <text class="cuIcon-medalfill"></text> 排名</view>
+    </view>
+    <view class="flex flex-sub flex-direction solid-right">
+      <view class="text-xxl text-blue">123{{starCount}}</view>
+      <view class="margin-top-sm">
+        <text class="cuIcon-favorfill"></text> 积分</view>
+    </view>
+    <view class="flex flex-sub flex-direction">
+      <view class="text-xxl text-green">1{{forksCount}}</view>  
+      <view class="margin-top-sm">
+        <text class="cuIcon-upstagefill"></text> 最强王者</view>
+    </view>
+  </view>
+  <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
+    <view class="cu-item arrow">
+      <view class="content" bindtap="CopyLink" data-link="https://github.com/weilanwl/ColorUI">
+        <text class="cuIcon-post text-grey"></text>
+        <text class="text-grey">我的题库</text>
+      </view>
+    </view>
+    <view class="cu-item arrow">
+      <navigator class="content" url="/pages/about/test/list" hover-class="none">
+        <text class="cuIcon-discoverfill text-orange"></text>
+        <text class="text-grey">加入班级</text>
+      </navigator>
+    </view>
+    <view class="cu-item arrow">
+      <navigator class="content" url="/pages/logs/logs" hover-class="none">
+        <text class="cuIcon-formfill text-green"></text>
+        <text class="text-grey">日志</text>
+      </navigator>
+    </view>
+    <view class="cu-item arrow">
+      <view class="content" bindtap="showQrcode">
+        <text class="cuIcon-appreciatefill text-red"></text>
+        <text class="text-grey">赞赏支持</text>
+      </view>
+    </view>
+    <view class="cu-item arrow">
+      <button class="cu-btn content" open-type="feedback">
+        <text class="cuIcon-writefill text-cyan"></text>
+        <text class="text-grey">意见反馈</text>
+      </button>
+    </view>
+    <view class="cu-item arrow">
+      <navigator class="content" url="/pages/about/test/list" hover-class="none">
+        <text class="cuIcon-creativefill text-orange"></text>
+        <text class="text-grey">日程</text>
+      </navigator>
+    </view>
+  </view>
+  <view class="cu-tabbar-height"></view>
+</scroll-view>

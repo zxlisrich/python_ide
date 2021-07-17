@@ -1,0 +1,57 @@
+<swiper class="card-swiper {{DotStyle?'square-dot':'round-dot'}} " indicator-dots="true" circular="true" autoplay="true"
+  interval="3000" duration="500" bindchange="cardSwiper" indicator-color="#8799a3" indicator-active-color="#0081ff"
+  style="">
+  <view class="top">
+    <swiper-item wx:for="{{swiperList}}" wx:key class="{{cardCur==index?'cur':''}}">
+      <view class="swiper-item">
+        <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
+        <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover"
+          wx:if="{{item.type=='video'}}"></video>
+      </view>
+    </swiper-item>
+  </view>
+</swiper>
+
+<view class="cu-bar bg-white solid-bottom {{isCard?'margin-top':''}} " style="margin: 0rpx 30rpx; border-radius: 12rpx">
+  <view class='action' >
+    <text class='cuIcon-titles text-orange '></text> python教程
+  </view>
+  <view class='action '>
+    <!-- <switch class='sm' checked='{{isCard}}' bindchange='isCard'></switch> -->
+  </view>
+</view>
+
+<view scroll-y class="scrollPage study" style="height:190rpx">
+  <view class='nav-list' style="margin: 0rpx auto;">
+    <card class="card" elements="{{elements[0]}}"
+      style="margin-left: -18rpx; width: 287rpx; height: 174rpx; display: block; box-sizing: border-box; left: NaNrpx; top: NaNrpx">
+    </card>
+    <card class="card" elements="{{elements[1]}}"
+      style="width: 287rpx; height: 174rpx; display: block; box-sizing: border-box; left: -13rpx; top: 0rpx; position: relative">
+    </card>
+
+  </view>
+  <view class='cu-tabbar-height'></view>
+</view>
+
+<view class="cu-bar bg-white solid-bottom {{isCard?'margin-top':''}}"
+  style="margin: 0rpx 30rpx; border-radius: 12rpx; position: relative; left: 0rpx; top: 20rpx">
+  <view class='action'>
+    <text class='cuIcon-titles text-orange '></text> python小故事
+  </view>
+  <view class='action'>
+    <!-- <switch class='sm' checked='{{isCard}}' bindchange='isCard'></switch> -->
+  </view>
+</view>
+
+
+<view class="DrawerWindow {{modalName=='viewModal'?'show':''}}">
+  <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg">
+    <view class="cu-item arrow" wx:for="{{pythonStory}}" wx:key="index" bindtap="urlStory" data-title="{{item.title}}">
+      <view class="content">
+        <text class="cuIcon-github text-grey">{{item.index}}</text>
+        <text class="text-grey title-color">{{item.title}}</text>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,8 @@
+/* pages/story/story.wxss */
+.story{
+  width:95%;
+  margin: 20rpx auto;
+  border: solid 1rpx #79bdff;
+  border-radius: 12rpx;
+  box-shadow:0rpx 2rpx 5rpx 5rpx #79BDFF;
+}

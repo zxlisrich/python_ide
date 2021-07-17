@@ -1,0 +1,15 @@
+
+<scroll-view scroll-y class="scrollPage">
+
+<view class="cu-card">
+  <view class="cu-item bg-img shadow-blur card_title_num" style="background-image:url({{item.img}})" bindtap="toChild" data-url="{{item.url}}" wx:for="{{list}}" wx:key>
+    <view class="cardTitle" style="height:100rpx">
+      {{item.title}}
+    </view>
+    <view class="pass_num">
+      345/23
+    </view>
+
+  </view>
+</view>
+</scroll-view>

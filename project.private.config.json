@@ -1,0 +1,161 @@
+{
+  "setting": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "pages/home/home",
+          "pathName": "pages/home/home",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/home/home",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/python/python",
+          "pathName": "pages/python/python",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/question_center/question_center",
+          "pathName": "pages/question_center/question_center",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/one/one",
+          "pathName": "pages/one/one",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/detail/detail",
+          "pathName": "pages/detail/detail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/home/home",
+          "pathName": "pages/home/home",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/choice/choice",
+          "pathName": "pages/choice/choice",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/test/test",
+          "pathName": "pages/test/test",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/detail/detail",
+          "pathName": "pages/detail/detail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/story/story",
+          "pathName": "pages/story/story",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/logs/logs",
+          "pathName": "pages/logs/logs",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/one/one",
+          "pathName": "pages/one/one",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/home/home",
+          "pathName": "pages/home/home",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/story/story",
+          "pathName": "pages/story/story",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/choice/choice",
+          "pathName": "pages/choice/choice",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/filling/filling",
+          "pathName": "pages/filling/filling",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/one/one",
+          "pathName": "pages/one/one",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/one/one",
+          "pathName": "pages/one/one",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/home/home",
+          "pathName": "pages/home/home",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/one/one",
+          "pathName": "pages/one/one",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/detail/detail",
+          "pathName": "pages/detail/detail",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

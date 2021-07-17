@@ -1,0 +1,19 @@
+<view class="cu-timeline" wx:for="{{pythonLog}}" wx:for-item="log">
+  <view class="cu-item text-green">
+
+    <view class="bg-gradual-green content shadow" style="background-color:#f2b48a">
+
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-white text-green">{{log.version}}</view>
+        <view class="cu-tag line-white">{{log.time}}</view>
+      </view>
+
+      <view class="margin-top-sm text-content" wx:for="log.updata.length">
+        <view>{{log.updata[index]}}</view>
+      </view>
+
+    </view>
+
+  </view>
+
+</view>

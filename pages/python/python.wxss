@@ -1,0 +1,238 @@
+page {
+  background-image: #cce6ff;
+  background-color: #cce6ff;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.DrawerPage {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  left: 0vw;
+  background-color: #cce6ff;
+  transition: all 0.4s;
+}
+
+.DrawerPage.show {
+  transform: scale(0.9, 0.9);
+  left: 85vw;
+  box-shadow: 0 0 60rpx rgba(0, 0, 0, 0.2);
+  transform-origin: 0;
+}
+
+.DrawerWindow {
+  position: absolute;
+  width: 85vw;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  transform: scale(0.9, 0.9) translateX(-100%);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s;
+}
+
+.DrawerWindow.show {
+  transform: scale(1, 1) translateX(0%);
+  opacity: 1;
+  pointer-events: all;
+}
+
+.DrawerClose {
+  position: absolute;
+  width: 40vw;
+  height: 100vh;
+  right: 0;
+  top: 0;
+  color: transparent;
+  padding-bottom: 30rpx;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.01), rgba(0, 0, 0, 0.6));
+  letter-spacing: 5px;
+  font-size: 50rpx;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s;
+}
+
+.DrawerClose.show {
+  opacity: 1;
+  pointer-events: all;
+  width: 15vw;
+  color: #fff;
+}
+
+.DrawerPage .cu-bar.tabbar .action button.icon {
+  width: 64rpx;
+  height: 64rpx;
+  line-height: 64rpx;
+  margin: 0;
+  display: inline-block;
+}
+
+.DrawerPage .cu-bar.tabbar .action .cu-avatar {
+  margin: 0;
+}
+
+.DrawerPage .nav {
+  flex: 1;
+}
+
+.DrawerPage .nav .cu-item.cur {
+  border-bottom: 0;
+  position: relative;
+}
+
+.DrawerPage .nav .cu-item.cur::after {
+  content: "";
+  width: 10rpx;
+  height: 10rpx;
+  background-color: currentColor;
+  position: absolute;
+  bottom: 10rpx;
+  border-radius: 10rpx;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.DrawerPage .cu-bar.tabbar .action {
+  flex: initial;
+}
+
+.sort {
+  display: flex;
+  flex-direction: column;
+  background-color: #cce6ff;
+}
+
+.top {
+  margin-top: 10rpx;
+  display: flex;
+  flex-direction: row;
+  height: 90rpx;
+  align-items: center;
+  margin-left: 100rpx;
+  font-size: 45rpx;
+  font-weight: 700;
+}
+
+.logo image {
+  width: 85rpx;
+  height: 85rpx;
+  margin-right: 30rpx;
+}
+.top_three{
+  margin-top: 30rpx;
+}
+.top_three image {
+  width: 170rpx;
+  height: 170rpx;
+  /* margin: 10rpx 10rpx; */
+
+  border-radius: 50%;
+}
+
+.one,
+.two,
+.three {
+  /* box-shadow: rgb(49, 49, 77); */
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* background-color: black; */
+  color: rgb(252,169,44);
+
+}
+
+
+.one_img {
+  background-color: black; 
+  width: 170rpx;
+  height: 170rpx;
+  box-shadow: 0 0 10px rgb(245,218,104);
+  border-radius: 50%;
+}
+.two_img {
+  
+  width: 170rpx;
+  height: 170rpx;
+  box-shadow: 0 0 10px rgb(212,212,212);
+  border-radius: 50%;
+}
+.three_img {
+  
+  width: 170rpx;
+  height: 170rpx;
+  box-shadow: 0 0 10px rgb(231,163,113);
+  border-radius: 50%;
+}
+
+.top_three_text {
+  border: solid 1px (184, 189, 189, 0.726);
+  font-size: 35rpx;
+  left: 55rpx;
+  bottom: 155rpx;
+  background-color: #fff;
+  margin-top: -20rpx;
+  border-radius: 10rpx;
+}
+
+.tow_three {
+  margin-top: 25rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-bottom: 20rpx;
+}
+
+.top_list {
+  /* box-shadow:0 5px 10px -5px #501313; */
+
+  box-shadow: 0 0 10px rgba(184, 189, 189, 0.726);
+  margin: 150rpx 100rpx;
+  background-color: #fff;
+  border-radius: 20rpx;
+}
+
+.list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* background-color: #fff; */
+  margin: auto 20rpx;
+  border-bottom: 2rpx ridge #f0ebeb;
+}
+
+.list_head_img image {
+  width: 65rpx;
+  height: 65rpx;
+  border-radius: 50%;
+}
+
+.list_user_message {
+  display: flex;
+  flex-direction: column;
+}
+.rank{
+  width: 60rpx;
+  text-align: center;
+  padding-top: 21rpx;
+  margin-right: 5rpx;
+}
+.list_head_img {
+  margin-right:20rpx;
+}
+
+.show_more{
+  background-color: #fff;
+}
+
+.p_num{
+  color: rgb(167,168,162);
+}

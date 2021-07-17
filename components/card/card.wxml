@@ -1,0 +1,6 @@
+<navigator open-type="navigate" hover-class='none' url="/pages/{{elements.name}}/{{elements.name}}"
+  class="nav-li bg-{{elements.color}}" style="width: 300rpx;  padding-right: 55px;">
+  <view class="nav-title">{{elements.title}}</view>
+  <view class="nav-name">{{elements.name}}</view>
+  <text class='cuIcon-{{elements.icon}}'></text>
+</navigator>

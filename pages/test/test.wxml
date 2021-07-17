@@ -1,0 +1,116 @@
+<scroll-view scroll-x class="bg-white padding response cu-steps steps-bottom" scroll-into-view="scroll-{{scroll}}"
+  scroll-with-animation>
+  <view class="cu-item {{scroll >= 0?'text-blue':''}} padding-lr-xl" data-index="{{0}}" bindtap="bindlevel">
+    Level 1 <text class="num">1</text>
+  </view>
+  <view class="cu-item {{scroll >= 1?'text-blue':''}} padding-lr-xl" data-index="{{1}}" bindtap="bindlevel">
+    Level 2 <text class="num">2</text>
+  </view>
+  <view class="cu-item {{scroll >= 2?'text-blue':''}} padding-lr-xl" data-index="{{2}}" bindtap="bindlevel">
+    Level 3 <text class="num">3</text>
+  </view>
+  <view class="cu-item {{scroll >= 3?'text-blue':''}} padding-lr-xl" data-index="{{3}}" bindtap="bindlevel">
+    Level 4 <text class="num">4</text>
+  </view>
+</scroll-view>
+
+<view class=" text-green padding radius  light " style="height:130%;  margin: 40rpx">
+  <!-- 文章内容 -->
+  <view wx:if="{{show_who == 0}}">
+    <wemark md="{{show_contents}}" link highlight type="wemark"></wemark>
+  </view>
+  <!-- 第一个选择题 -->
+  <view wx:elif="{{show_who == 1}}" class="choice">
+    <view>
+      <text class="text-red text-center">选择题</text> <text
+        class="question_title text-left padding">{{show_choice_data[0].title}}</text>
+    </view>
+    <view wx:if="{{show_choice_data[0].flag == 0}}">
+      <radio-group class="block " bindchange="get_user_choice">
+        <view class="flex  solid-bottom padding align-center" wx:for="{{show_choice_data[0].options}}" wx:for-index="i"
+          data-index="{{i}}"  data-flag = "{{0}}" bindtap="set_index">
+          <radio value='{{i+65}}' class="blue radio"></radio>
+          <text class=" padding">{{item}}</text>
+        </view>
+      </radio-group>
+    </view>
+    <view wx:else>
+      <radio-group class="block " bindchange="get_user_choice">
+        <view class="flex  solid-bottom padding align-center" wx:for="{{show_choice_data[0].options}}" wx:for-index="i">
+          <text wx:if="{{(i+65) == show_choice_data[0].ans}}" class="cuIcon-roundcheckfill text-green text-xxl"></text>
+          <text wx:elif="{{(i+65) == show_choice_data[0].user_ans && show_choice_data[0].ans!=show_choice_data[0].user_ans}}" class="cuIcon-roundclosefill  text-red text-xxl"></text>
+          <radio wx:else disabled="false"></radio>
+          <text class=" padding">{{item}} </text>
+        </view>
+      </radio-group>
+    </view>
+  </view>
+  <!-- 第二个选择题 -->
+  <view wx:elif="{{show_who == 2}}" class="choice">
+    <view>
+      <text class="text-red text-center">选择题</text> <text
+        class="question_title text-left padding">{{show_choice_data[1].title}}</text>
+    </view>
+    <view wx:if="{{show_choice_data[1].flag == 0}}">
+      <radio-group class="block " bindchange="get_user_choice">
+        <view class="flex  solid-bottom padding align-center" wx:for="{{show_choice_data[1].options}}" wx:for-index="i"
+          data-index="{{i}}" data-flag = "{{1}}" bindtap="set_index">
+          <radio value='{{i+65}}' class="blue radio"></radio>
+          <text class=" padding">{{item}}</text>
+        </view>
+      </radio-group>
+    </view>
+    <view wx:else>
+      <radio-group class="block " bindchange="get_user_choice">
+        <view class="flex  solid-bottom padding align-center" wx:for="{{show_choice_data[1].options}}" wx:for-index="i">
+          <text wx:if="{{(i+65) == show_choice_data[1].ans}}" class="cuIcon-roundcheckfill text-green text-xxl"></text>
+          <text wx:elif="{{(i+65) == show_choice_data[1].user_ans && show_choice_data[1].ans!=show_choice_data[1].user_ans}}" class="cuIcon-roundclosefill  text-red text-xxl"></text>
+          <radio wx:else disabled="false"></radio>
+          <text class=" padding">{{item}} </text>
+        </view>
+      </radio-group>
+    </view>
+  </view>
+  <!-- 填空题 -->
+  <view wx:elif="{{show_who == 3}}">
+    <text class="text-red text-center">填空题</text>
+    <view class="question_title text-left padding">{{show_filling_data.title}}</view>
+    <view wx:if="{{show_filling_data.flag == 0}}">
+      <view class="bg-gray radius light input_box " >
+        <view class="margin-left">1</view>
+        <input class="input margin-left " bindblur="get_user_ans"  placeholder="请输入答案"></input>
+      </view>
+      <view class="margin-tb-sm text-center ">
+        <button class="cu-btn round bg-grey" role="button" bindtap="submit" aria-disabled="false"
+          style="width:200rpx">确认</button>
+      </view>
+    </view>
+    <view wx:else>
+      <view class="bg-gray radius light input_box " >
+        <view class="margin-left">1</view>
+        <input class="input margin-left {{show_filling_data.user_ans == show_filling_data.ans?'text-green':'text-red'}}"
+          value="{{show_filling_data.user_ans}}"></input>
+      </view>
+      <view class="margin-tb-sm padding  {{show_filling_data.user_ans == show_filling_data.ans?'text-green':'text-red'}} text-bold">
+        <text wx:if="{{show_filling_data.user_ans == show_filling_data.ans}}">回答正确</text>
+        <text wx:else>回答错误</text>
+      </view>
+      <view wx:if="{{show_filling_data.user_ans != show_filling_data.ans}}" class="show_ans">
+        <view class="padding">答案:</view>
+        <view>
+          <view class="">{{show_filling_data.ans}} </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>
+
+<view class="cu-bar bg-white solid-bottom margin-top pass " style="position: fixed; bottom: 0rpx;">
+  <view class="action">
+    <text class="cuIcon-title text-orange"></text>加油骚年
+  </view>
+  <view class="action">
+    <button class="cu-btn bg-green shadow" bindtap="scrollSteps">下一关</button>
+  </view>
+</view>

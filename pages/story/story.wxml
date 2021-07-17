@@ -1,0 +1,3 @@
+<view class="story">
+    <wemark md="{{pythonStory.content}}" link highlight type="wemark"></wemark>
+</view>

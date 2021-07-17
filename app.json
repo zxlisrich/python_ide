@@ -1,0 +1,56 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/story/story",
+    "pages/home/home",
+    "pages/python/python",
+    "pages/IDE/IDE",
+    "pages/choice/choice",
+    "pages/filling/filling",
+    "pages/multiple/multiple",
+    "pages/one/one",
+    "pages/exam/exam",
+    "pages/detail/detail",
+    "pages/PythonCET_2/PythonCET_2",
+    "pages/test/test"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#cce6ff",
+    "navigationBarTitleText": "Python",
+    "navigationBarTextStyle":"black"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "color": "#999",
+    "selectedColor": "#79bdff",
+    "backgroundColor": "#fff",
+    "position": "bottom",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "icons/home2.png",
+        "selectedIconPath": "icons/home.png"
+      },
+      
+      {
+        "pagePath": "pages/IDE/IDE",
+        "text": "在线IDE",
+        "iconPath": "icons/IDEg.png",
+        "selectedIconPath": "icons/IDEo-2.png"
+      },
+      {
+        "pagePath": "pages/home/home",
+        "text": "我的",
+        "iconPath": "icons/set1.png",
+        "selectedIconPath": "icons/set.png"
+      }
+    ]
+  }
+
+
+}

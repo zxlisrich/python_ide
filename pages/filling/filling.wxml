@@ -1,0 +1,69 @@
+<view class="bottom_box bg-white">
+  <view class="right_num flex solid-bottom padding align-center">
+    <text class="cuIcon-roundcheck lg text-green text-xxl "></text> <text class="text-xl  ">{{data_num[2]}}</text>
+  </view>
+  <view class="flex solid-bottom padding align-center">
+    <text class="cuIcon-roundclose lg text-red text-xxl"></text><text class="text-xl  ">{{data_num[3]}}</text>
+  </view>
+  <view class="flex solid-bottom padding align-center" bindtap="showModal" data-target="bottomModal">
+    <text class="cuIcon-apps lg text-gray text-xxl"></text><text class="text-xl  ">{{ques_num}}</text>
+  </view>
+</view>
+
+
+<view class="cu-modal bottom-modal {{modalName=='bottomModal'?'show':''}}">
+  <view class="cu-dialog modal_cnum bg-white">
+    <view class="cu-bar bg-white">
+      <view class="action text-blue" bindtap="hideModal" style="margin-left:80%">取消</view>
+    </view>
+    <view class="padding-xs">
+      <scroll-view scroll-y style="width: 100%; height: 1000rpx;"
+        class="bg-white padding response cu-steps steps-bottom" scroll-into-view="scroll-{{scroll}}"
+        scroll-with-animation>
+        <view class="scroll_inner">
+          <view class=" padding-lr-xsl  " style="padding-right:30rpx" data-index="{{index}}" bindtap="bindlevel" wx:for="{{ques_num}}" wx:key
+            id="scroll-{{index}}">
+            <text class=" text-xl ttt ">{{index+1}}</text>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+</view>
+<swiper class="screen-swiper swiper_h " bindchange="swiper_change" current="{{curIndex}}">
+  <swiper-item wx:for="{{ques_num}}" wx:key>
+    <view style="margin-top:60rpx; margin-left:30rpx;margin-right:30rpx  ">
+      <text class="text-red text-center text-xxl">{{index+1}} 填空题</text><text
+        class="question_title text-left text-xl padding">{{show_data[index].contents}}</text>
+        <view wx:if="{{show_data[index].show_ans == false}}" style="margin-top:100rpx">
+          <view class="bg-gray radius light input_box " wx:for="{{show_data[index].ans.length}}"
+            wx:for-index="i">
+            <view class="margin-left">{{i+1}}</view>
+            <input class="input margin-left " bindblur="get_user_ans" data-index="{{i}}" placeholder="请输入答案"></input>
+          </view>
+          <view class="margin-tb-sm text-center ">
+            <button class="cu-btn round bg-grey" role="button" bindtap="submit" aria-disabled="false"
+              style="width:200rpx">确认</button>
+          </view>
+        </view>
+        <view wx:elif = "{{show_data[index].show_ans == true}}" style="margin-top:100rpx">
+          <view class="bg-gray radius light input_box " wx:for="{{show_data[index].ans.length}}"
+            wx:for-index="i">
+            <view class="margin-left">{{i+1}}</view>
+            <input class="input margin-left {{show_data[index].ans[i] == show_data[index].error_ans[i]?'text-green':'text-red'}}"
+              value="{{show_data[index].error_ans[i]}}"></input>
+          </view>
+          <view class="margin-tb-sm padding  {{Level_content[scroll-1].isRight?'text-green':'text-red'}} text-bold">
+            <text wx:if="{{show_data[index].isRight }}" class="text-green">回答正确</text>
+            <text wx:else>回答错误</text>
+          </view>
+          <view wx:if="{{show_data[index].isRight == false}}" class="show_ans">
+            <view class="padding">答案:</view>
+            <view>
+              <view class="" wx:for="{{show_data[index].ans}}" wx:for-index="i">{{i+1}}---{{item}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+  </swiper-item>
+</swiper>

@@ -1,0 +1,73 @@
+<view class="bottom_box bg-white">
+  <view class="right_num flex solid-bottom padding align-center">
+    <text class="cuIcon-roundcheck lg text-green text-xxl "></text> <text class="text-xl  ">{{data_num[0]}}</text>
+  </view>
+  <view class="flex solid-bottom padding align-center">
+    <text class="cuIcon-roundclose lg text-red text-xxl"></text><text class="text-xl  ">{{data_num[1]}}</text>
+  </view>
+  <view class="flex solid-bottom padding align-center" bindtap="showModal" data-target="bottomModal">
+    <text class="cuIcon-apps lg text-gray text-xxl"></text><text class="text-xl  ">{{ques_num}}</text>
+  </view>
+</view>
+
+
+<view class="cu-modal bottom-modal {{modalName=='bottomModal'?'show':''}}">
+  <view class="cu-dialog modal_cnum bg-white">
+    <view class="cu-bar bg-white">
+      <view class="action text-blue" bindtap="hideModal" style="margin-left:80%">取消</view>
+    </view>
+    <view class="padding-xs">
+      <scroll-view scroll-y style="width: 100%; height: 1000rpx;"
+        class="bg-white padding response cu-steps steps-bottom" scroll-into-view="scroll-{{scroll}}"
+        scroll-with-animation>
+        <view class="scroll_inner">
+          <view class=" padding-lr-xsl  " style="padding-right:30rpx" data-index="{{index}}" bindtap="bindlevel" wx:for="{{ques_num}}" wx:key
+            id="scroll-{{index}}">
+            <text class=" text-xl ttt ">{{index+1}}</text>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+</view>
+
+<swiper class="screen-swiper swiper_h " bindchange="swiper_change" current="{{curIndex}}">
+  <swiper-item wx:for="{{ques_num}}" wx:key>
+    <view class="box">
+      <text class=" text-center text-xxl">{{index+1}} 选择题</text> <text
+        class="question_title text-left text-xl padding">{{show_data[index].title}}</text>
+    </view>
+    <view class=" box ">
+      <view wx:if="{{show_data[index].show_ans == 0}}">
+        <radio-group class="block " bindchange="get_user_choice">
+          <view class="flex  solid-bottom padding align-center bg-white" wx:for="{{choice_question[index].options}}" wx:for-index="i"
+            data-index="{{i}}" bindtap="set_index">
+            <radio  value='{{i+65}}' class="blue radio"></radio>
+            <text class=" padding">{{item}}</text>
+          </view>
+        </radio-group>
+      </view>
+      <view wx:elif="{{show_data[index].show_ans == 1}}">
+        <radio-group class="block " bindchange="get_user_choice">
+          <view class="flex  solid-bottom padding align-center" wx:for="{{choice_question[index].options}}" wx:for-index="i">
+            <text wx:if="{{(i+65) == show_data[index].ans}}" class="cuIcon-roundcheckfill text-green text-xxl"></text>
+            <radio wx:else disabled="false"></radio>
+            <text class=" padding">{{item}} </text>
+          </view>
+        </radio-group>
+      </view>
+      <view wx:else>
+        <radio-group class="block " bindchange="get_user_choice">
+          <view class="flex  solid-bottom padding align-center" wx:for="{{choice_question[index].options}}"
+            wx:for-index="i">
+            <text wx:if="{{(i+65) == show_data[index].ans}}" class="cuIcon-roundcheckfill text-green text-xxl"></text>
+            <text wx:elif="{{(i+65) == show_data[index].error_ans}}" class="cuIcon-roundclosefill  text-red text-xxl"></text>
+            <radio wx:else disabled="false"></radio>
+            <text class=" padding">{{item}}</text>
+          </view>
+
+        </radio-group>
+      </view>
+    </view>
+  </swiper-item>
+</swiper>
