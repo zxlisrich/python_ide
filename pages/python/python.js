@@ -85,7 +85,6 @@ Page({
   },
 
   async onLoad() {
-    console.log("app", app.globalData.user_id);
     await this.get_user_info();
     await this.set_python_study();
     
@@ -98,7 +97,6 @@ Page({
     let k = 0;
     let contents = [];
     let arr = []  //用来存放用户的学习进度数组， 暂时使用这个名字
-    console.log("data:", data);
     for (let i = 0; i < data.length; i++) {
       if (data[i].one_directory == title) {
         let temp = {};
@@ -113,13 +111,10 @@ Page({
         temp.choice = choice;
         temp.filling = data[i].filling;
         temp.filling.user_ans = '';
-        console.log('temp', temp);
         contents.push(temp);
       }
       if (i > 0 && (data[i - 1].one_directory == title && data[i].one_directory != title)) break;
     }
-    console.log("小夫我出来啦", app.globalData.user_id);
-    console.log(contents);
     wx.setStorage({
       data: contents,
       key: 'contents',
@@ -137,34 +132,27 @@ Page({
 
 
   async get_user_info() {
-    // console.log(app.globalData.user_id);
     let that = this;
     await wx.cloud.callFunction({
       name: 'get_all_user_mark',
     }).then(async res => {
-      console.log("ppppdata:", res);
       let data = res.result.data;
       await that.set_rank(data);
     })
-    // await this.update_user_data();
   },
 
   async set_python_study() {
     let that = this;
     let arr_state = {};
-    console.log("????人呢？");
     await wx.cloud.callFunction({
       name: 'get_user_info',
       data: {
         id: app.globalData.user_id
       }
     }).then(async res => {
-      console.log("????人呢？", res.result);
       let data = res.result.data[0];
       let temp = app.globalData.python_study;  //拿到全部内容
-      console.log('data is null?', data);
-      if (data.python_study == null) {
-        console.log("小夫我要进来啦");
+      if (data.python_study == null) {   //每次更新数据记得来这里把if去掉重新加载一下用户做题信息。
         let arr = {}  //用来存放用户的学习进度数组， 暂时使用这个名字
         for (let i = 0; i < temp.length; i++) {
           if(temp[i].choice == null) break;
@@ -183,7 +171,6 @@ Page({
   },
   set_rank(data) {
     let arr = [];
-    console.log("data:", data);
     for (let i = 0; i < data.length; i++) {
       let t = {};
       t.user_name = data[i].nick_name;
@@ -191,7 +178,6 @@ Page({
       if(data[i].integral == null) t.ac_num = 0;
       else t.ac_num = data[i].integral;
       t.user_id = i;
-      console.log(t);
       arr.push(t);
     }
     function compare(property) {
@@ -201,7 +187,6 @@ Page({
         return value2 - value1;
       }
     }
-    console.log(arr.sort(compare('ac_num')))
     let user_one_three = [];
     let user_sort = [];
     user_one_three[0] = arr[0];
@@ -224,13 +209,11 @@ Page({
         python_study: arr
       },
     }).then(res => {
-      console.log("小夫加油", res);
     })
 
   },
 
   getUserInfo: function (e) {
-    console.log(e)
     app.globalData.userInfo = e.detail.userInfo
     this.setData({
       userInfo: e.detail.userInfo,
@@ -248,7 +231,6 @@ Page({
     })
   },
   tabSelect(e) {
-    console.log(e);
     this.setData({
       TabCur: e.currentTarget.dataset.id,
       scrollLeft: (e.currentTarget.dataset.id - 1) * 60

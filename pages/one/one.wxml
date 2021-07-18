@@ -1,3 +1,4 @@
+<loading></loading>
 <view scroll-y class="scrollPage " style="height:70vh; margin-top:65rpx">
   <view class="card_position" style = "height:300rpx">
     <view class='nav-list ' wx:for="{{elements}}" style="width:50%;">

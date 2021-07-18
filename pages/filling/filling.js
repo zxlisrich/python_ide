@@ -34,22 +34,19 @@ Page({
       name: 'get_filling_data',
     }).then(res => {
       let data = [];
-       console.log(res);
       for (let i = 0; i < res.result.data.length; i++) {
         let t = res.result.data[i];
         let temp = {};
         temp.ans = t.ans;
         temp.contents = t.contents;
         data.push(temp);
-        // console.log(temp); 
+ 
       }
-      console.log("小夫我要进来啦啦啦啦啦");
       that.setData({
         filling_question: data,
         ques_num: data.length
       })
     })
-    // console.log("小夫我要初拉力了");
   },
 
   async get_user_info() {
@@ -60,7 +57,6 @@ Page({
         id:app.globalData.user_id
       }
     }).then(res => {
-      console.log("data:", res);
       let filling_data = that.data.filling_question;  //data中的题目数据
       let data = res.result.data[0];
       let t1 = [];
@@ -89,15 +85,12 @@ Page({
           data_num,
           integral:integral
         })
-        // console.log("前面的show_data", this.data.show_data);
       } else {
         that.setData({
           show_data: data.filling,
           data_num:data.data_num,
           integral:data.integral
         })
-        console.log("filling.choice:", data.filling);
-        console.log(that.data.data_num);
       }
     })
     await this.update_user_data();
@@ -114,8 +107,6 @@ Page({
         integral: that.data.integral
       },
     }).then(res => {
-      console.log("小夫加油", res);
-      console.log("show_data：", that.data.show_data)
     })
 
   },
@@ -140,7 +131,6 @@ Page({
     data.show_ans = true;
     if(!flag){
       data.isRight = true;
-       console.log("回答正确");
        data_num[2]++;
        integral++;
     }else data_num[3]++;
@@ -154,26 +144,20 @@ Page({
   },
 
   get_user_ans(e){
-    console.log(e);
     let index = this.data.index;
     let idx = e.currentTarget.dataset.index;
     let data  = this.data.show_data;
     data[index].error_ans[idx] = e.detail.value
-    // let data = this.data.Level_content;
-    // let value = e.detail.value;
-    // let len = data[i].filling.users_ans.length;
-    // data[i].filling.users_ans[index] = value;
+
      this.setData({
        show_data:data
      })
-     console.log("用户答案error",data);
   },
 
   show_all_data() {
     this.setData({
       show: true
     })
-    console.log("aaaaA", this.data.show);
   },
   showModal(e) {
     this.setData({
@@ -186,7 +170,6 @@ Page({
     })
   },
   bindlevel(e) {
-    console.log(e);
     let index = e.currentTarget.dataset.index;
     this.setData({
       curIndex: index
@@ -195,7 +178,6 @@ Page({
   },
 
   swiper_change(e) {
-    // console.log(e);
     this.setData({
       index: e.detail.current
     })

@@ -1,3 +1,4 @@
+<loading></loading>
 <swiper class="card-swiper {{DotStyle?'square-dot':'round-dot'}} " indicator-dots="true" circular="true" autoplay="true"
   interval="3000" duration="500" bindchange="cardSwiper" indicator-color="#8799a3" indicator-active-color="#0081ff"
   style="">

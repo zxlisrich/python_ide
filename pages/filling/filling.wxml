@@ -1,3 +1,4 @@
+<loading></loading>
 <view class="bottom_box bg-white">
   <view class="right_num flex solid-bottom padding align-center">
     <text class="cuIcon-roundcheck lg text-green text-xxl "></text> <text class="text-xl  ">{{data_num[2]}}</text>

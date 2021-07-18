@@ -25,7 +25,7 @@ Component({
    */
   methods: {
     goto_next(e){
-      console.log(e);
+     // console.log(e);
       let index = e.currentTarget.dataset.index;
       let data = this.properties.elements;
       if(data.ispass!=0){
@@ -36,10 +36,10 @@ Component({
 
   
         wx.navigateTo({
-          url: '../../pages/test/test',
+          url: '../../pages/detail/detail',
         })
-        console.log("小夫， 我进来啦");
-        console.log( this.properties.elements);
+        //console.log("小夫， 我进来啦");
+       // console.log( this.properties.elements);
       }
       
     }

@@ -14,6 +14,7 @@
     "pages/detail/detail",
     "pages/PythonCET_2/PythonCET_2",
     "pages/test/test"
+
   ],
   "window":{
     "backgroundTextStyle":"light",

@@ -35,7 +35,7 @@ Page({
       name: 'get_choice_data',
     }).then(res => {
       let data = [];
-      // console.log(res.result);
+
       for (let i = 0; i < res.result.data.length; i++) {
         let t = res.result.data[i];
         let temp = {};
@@ -43,28 +43,26 @@ Page({
         temp.options = t.options;
         temp.title = t.title;
         data.push(temp);
-        // console.log(temp); 
+    
       }
-      console.log("小夫我要进来啦啦啦啦啦");
+    
       that.setData({
         choice_question: data,
         ques_num: data.length
       })
     })
-    // console.log("小夫我要初拉力了");
+
   },
 
   async get_user_info() {
-   // console.log(app.globalData.user_id);
+
     let that = this;
-    console.log("app", app.globalData.user_id);
     await wx.cloud.callFunction({
       name: 'get_user_info',
       data:{
         id:app.globalData.user_id
       }
     }).then(res => {
-      console.log("data:", res);
       let choice_data = that.data.choice_question;  //data中的题目数据
       let data = res.result.data[0];
       let t1 = [];
@@ -92,15 +90,12 @@ Page({
           data_num,
           integral:integral
         })
-        // console.log("前面的show_data", this.data.show_data);
       } else {
         that.setData({
           show_data: data.choice,
           data_num:data.data_num,
           integral:data.integral
         })
-        console.log("data.choice:", data.choice);
-        console.log(that.data.data_num);
       }
     })
     await this.update_user_data();
@@ -117,8 +112,6 @@ Page({
         integral: that.data.integral
       },
     }).then(res => {
-      console.log("小夫加油", res);
-      console.log("show_data：", that.data.show_data)
     })
 
   },
@@ -145,7 +138,7 @@ Page({
       data_num,
       integral
     })
-    console.log("lalallalal",this.data.show_data);
+
     await this.update_user_data();
   },
 
@@ -156,7 +149,6 @@ Page({
     this.setData({
       show: true
     })
-    console.log("aaaaA", this.data.show);
   },
   showModal(e) {
     this.setData({
@@ -169,7 +161,7 @@ Page({
     })
   },
   bindlevel(e) {
-    console.log(e);
+
     let index = e.currentTarget.dataset.index;
     this.setData({
       curIndex: index
@@ -178,7 +170,7 @@ Page({
   },
 
   swiper_change(e) {
-    // console.log(e);
+  
     this.setData({
       index: e.detail.current
     })

@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "card":"../../components/card2/card"
+    "card":"../../components/card2/card",
+    "loading":"../../components/loading/loading"
   }
 }

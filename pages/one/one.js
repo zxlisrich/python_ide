@@ -18,7 +18,6 @@ Page({
       key: 'id',
       success(res) {
         id = res.data
-        console.log(id);
       }
     })
   },
@@ -27,7 +26,6 @@ Page({
     await wx.getStorage({
       key: 'contents',
       success(res) {
-        console.log(res.data);
         that.setData({
           elements: res.data
         })
@@ -40,7 +38,6 @@ Page({
     let data = this.data.elements;
     let tit = data[0].title;
     let user_data = user_study_msg;   
-    console.log(user_data);
    for(let i = 0; i<data.length; i++){
      let flag = 0;
      let t = data[i].title;
@@ -55,13 +52,11 @@ Page({
    this.setData({
      elements:data
    })
-   console.log("elements",data);
   },
 
   async get_user_info() {
     let that = this;
     let data = {};
-    console.log("???appid", app.globalData.user_id);
     await wx.cloud.callFunction({
       name: 'get_user_info',
       data: {
@@ -70,7 +65,6 @@ Page({
     }).then(async res => {
       data = res.result;
       user_study_msg = res.result.data[0].python_study;
-      console.log('res??????????', res.result);
     })
     return data
   }
