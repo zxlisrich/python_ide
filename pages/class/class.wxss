@@ -1,0 +1,19 @@
+/* pages/class/class.wxss */
+.mid{
+  margin: 50rpx auto;
+  height: 200rpx;
+  width: 200rpx;
+  
+}
+.radius{
+  border-radius:34rpx;
+}
+
+.form_text{
+    background-color: var(--white);
+    padding: 1rpx 30rpx;
+    display: flex;
+    align-items: center;
+    min-height: 100rpx;
+    justify-content: start;
+}

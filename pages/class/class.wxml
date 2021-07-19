@@ -1,0 +1,70 @@
+
+   <form  bindsubmit="submit" catchreset="formReset">
+  <view class="padding" wx:if="{{!isAuth}}" >
+    <view class="round mid"
+      style="background-image:{{student_head}};">
+    </view>
+    <view class="cu-form-group"  >
+      <view class="title" >学校：</view>
+      <input id = "class_school" placeholder="xxx大学" bindblur="get_user_ans" ></input>
+    </view>
+    <view class="cu-form-group">
+      <view class="title" >二级学院：</view>
+      <input id = "class_college" placeholder="xxx学院" bindblur="get_user_ans"></input>
+    </view>
+    <view class="cu-form-group">
+      <view class="title">名字：</view>
+      <input id = "class_name" placeholder="李雷" name="input"bindblur="get_user_ans"></input>
+    </view>
+    <view class="cu-form-group">
+      <view class="title">班级号：</view>
+      <input id = "class_class" placeholder="软件1901" name="input"bindblur="get_user_ans"></input>
+    </view>
+    <view class="cu-form-group">
+      <view class="title">学号：</view>
+      <input id = "class_id" placeholder="19020440111" bindblur="get_user_ans"></input>
+    </view>
+    <view class="cu-form-group">
+    </view>
+    <view class="padding flex flex-wrap justify-between align-center bg-white">
+      <button class="cu-btn cuIcon bg-yellow" bindtap="submit" >
+        确认
+      </button>
+    </view>
+
+  </view>
+  <view wx:elif="{{isAuth}}">
+    <view class="round mid"
+      style="background-image:{{student_head}}">
+    </view>
+    <view class="cu-form-group">
+      <view class="title">学校：</view>
+      <view >{{student_school}}</view>
+    </view>
+    <view class="cu-form-group">
+      <view class="title">二级学院：</view>
+      <view >{{student_college}}</view>
+    </view>
+    <view class="cu-form-group">
+      <view class="title">名字：</view>
+      <view >{{student_name}}</view>
+    </view>
+    <view class="cu-form-group">
+      <view class="title">班级：</view>
+      <view >{{student_class}}</view>
+    </view>
+    <view class="cu-form-group">
+      <view class="title">学号：</view>
+      <view >{{student_id}}</view>
+    </view>
+    <view class="cu-form-group">
+    </view>
+    <view class="padding flex flex-wrap justify-between align-center bg-white">
+      <button class="cu-btn cuIcon bg-yellow" bindtap="sign_out">
+        退出班级
+      </button>
+    </view>
+    
+  </view>
+
+</form>

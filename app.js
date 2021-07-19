@@ -10,6 +10,7 @@ App({
   choice_question: [],
   python_lesson: [],
 
+
   onLaunch: function () {
     if (wx.cloud) {
       wx.cloud.init({
@@ -28,7 +29,7 @@ App({
         }
       }
     }),
-      wx.cloud.callFunction({
+    wx.cloud.callFunction({
         name: 'getopenid',//调用云函数获取用户唯一openid
         complete: res => {
           const openid = res.result.openid
@@ -36,15 +37,18 @@ App({
           console.log("app.openid", res);
         }
       })
-      this.get_data();
+    this.get_data();
   },
+  
   async get_data() {
     await db.collection("python_study").get().then(res => {
       // console.log("123", res.data)
       this.globalData.python_study = res.data
     })
+   
   },
   globalData: {
+    class_info: {},
     user_Info: {},
     userInfo: "null",
     isLogin: false,

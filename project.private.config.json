@@ -153,6 +153,12 @@
         {
           "name": "pages/detail/detail",
           "pathName": "pages/detail/detail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/class/class",
+          "pathName": "pages/class/class",
           "scene": null
         }
       ]

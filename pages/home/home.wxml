@@ -45,7 +45,7 @@
       </view>
     </view>
     <view class="cu-item arrow">
-      <navigator class="content" url="/pages/about/test/list" hover-class="none">
+      <navigator class="content" url="/pages/class/class" hover-class="none">
         <text class="cuIcon-discoverfill text-orange"></text>
         <text class="text-grey">加入班级</text>
       </navigator>
